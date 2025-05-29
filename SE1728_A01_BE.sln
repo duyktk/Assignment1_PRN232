@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment1_PRN232", "Assignment1_PRN232\Assignment1_PRN232.csproj", "{EF614665-73E8-4C86-9FD5-A1B88B7DC2B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment1_PRN232", "Assignment1_PRN232\Assignment1_PRN232.csproj", "{EF614665-73E8-4C86-9FD5-A1B88B7DC2B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{EE3F3777-82A6-41F1-B485-6B4748001454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{EE3F3777-82A6-41F1-B485-6B4748001454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{CFCF4C74-E47A-434E-9686-E0E3F7561F12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{CFCF4C74-E47A-434E-9686-E0E3F7561F12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
