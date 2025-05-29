@@ -19,6 +19,10 @@ builder.Services.AddControllers()
 builder.Services.AddScoped(typeof(GenericRepository<>));
 
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<NewsArticleService>();
+builder.Services.AddScoped<TagService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -27,6 +27,10 @@ namespace Service
         {
             return await _repo.GetAccountById(id);
         }
+        public async Task<List<SystemAccount>> GetAccounts()
+        {
+            return await _repo.GetAllAsync();
+        }
 
         public async Task<bool> CreateAccount(string Fullname, string Email, string Password, int Role)
         {
