@@ -39,22 +39,19 @@ namespace Assignment1_PRN232.Controllers
             return CustomResult("Email existed.");
         }
 
-        // POST api/<ValuesController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpDelete("DeleteAccount")]
+        public async Task<IActionResult> DeleteAccount(short id)
         {
+            if (await _accountService.RemoveAccount(id)) return CustomResult("Successfully");
+            return CustomResult("Failed");
         }
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("UpdateAccount/{id}")]
+        public async Task<IActionResult> UpdateAccount(short id, string? Fullname, string? Email, string? Password, int? Role)
         {
+            if (await _accountService.UpdateAccount(id, Fullname, Email, Password, Role)) return CustomResult("Successfully");
+            return CustomResult("Failed");
         }
 
-        // DELETE api/<ValuesController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

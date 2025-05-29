@@ -30,7 +30,7 @@ namespace Service
 
         public async Task<bool> CreateAccount(string Fullname, string Email, string Password, int Role)
         {
-            if (await _repo.CheckExistEmail(Email))
+            if (await _repo.CheckExistEmail(Email) != null)
             {
                 return false;
             }
@@ -45,6 +45,49 @@ namespace Service
                 AccountRole = Role,
                 AccountId = (short)(l.Count + 1)
             });
+            return true;
+        }
+
+        public async Task<bool> RemoveAccount(short id)
+        {
+            var user = await _repo.GetAccountById(id);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            if(user.NewsArticles.Any())
+            {
+                return false;
+            }
+
+            await _repo.RemoveAsync(user);
+            return true;
+        }
+
+        public async Task<bool> UpdateAccount(short id, string? Fullname, string? Email, string? Password, int? Role)
+        {
+            var user = await _repo.GetAccountById(id);
+
+            if (user == null)
+            {
+                return false;
+            }
+
+            var existingEmail = await _repo.CheckExistEmail(Email);
+
+            if( existingEmail != null && existingEmail.AccountId != user.AccountId)
+            {
+                return false;
+            }
+            
+            if(Fullname != null) user.AccountName = Fullname;
+            if (Password != null) user.AccountPassword = Password;
+            if (Role != null) user.AccountRole = Role;
+            if (Email != null) user.AccountEmail = Email;
+
+            await _repo.UpdateAsync(user);
             return true;
         }
     }
