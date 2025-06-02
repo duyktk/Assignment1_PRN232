@@ -83,10 +83,10 @@ public partial class FUNewsManagementContext : DbContext
             entity.Property(e => e.NewsTitle).HasMaxLength(400);
             entity.Property(e => e.UpdatedById).HasColumnName("UpdatedByID");
 
-            entity.HasOne(d => d.Category).WithMany(p => p.NewsArticles)
-                .HasForeignKey(d => d.CategoryId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK_NewsArticle_Category");
+            //entity.HasOne(d => d.Category).WithMany(p => p.NewsArticles)
+            //    .HasForeignKey(d => d.CategoryId)
+            //    .OnDelete(DeleteBehavior.Cascade)
+            //    .HasConstraintName("FK_NewsArticle_Category");
 
             entity.HasOne(d => d.CreatedBy).WithMany(p => p.NewsArticles)
                 .HasForeignKey(d => d.CreatedById)

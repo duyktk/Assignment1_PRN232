@@ -15,13 +15,13 @@ namespace Repository
         public async Task<List<Category>> GetAllAsync()
             => await _context.Categories
                 .Include(c => c.ParentCategory)
-                .Include(c => c.NewsArticles)
+                //.Include(c => c.NewsArticles)
                 .ToListAsync();
 
         public async Task<Category> GetByIdAsync(short id)
             => await _context.Categories
                 .Include(c => c.ParentCategory)
-                .Include(c => c.NewsArticles)
+                //.Include(c => c.NewsArticles)
                 .FirstOrDefaultAsync(c => c.CategoryId == id);
 
         public async Task CreateAsync(Category category)
